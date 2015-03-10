@@ -1,0 +1,4 @@
+LIBRARY libbitcoinconsensus-0
+EXPORTS
+bitcoinconsensus_verify_script
+bitcoinconsensus_version
