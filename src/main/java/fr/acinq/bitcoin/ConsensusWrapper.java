@@ -29,6 +29,8 @@ public class ConsensusWrapper {
             return "windows";
         } else if (name.contains("Linux")) {
             return "linux";
+        }  else if (name.contains("Mac OS X")) {
+            return "osx";
         } else {
             return name.replaceAll("\\W", "");
         }
