@@ -9,8 +9,8 @@ endif
 
 NAME := bitcoin-consensus-wrapper$(ARCH)
 
-CPPFLAGS := -fPIC -O3 -g -Wall -Werror -I$(JAVA_HOME)/include
-LDFLAGS := -lstdc++ -L$(BITCOIN_HOME)/src/.libs -lbitcoinconsensus
+CPPFLAGS := -fPIC -O3 -g -Wall -Werror -I$(JAVA_HOME)/include -I$(BITCOIN_HOME)/include
+LDFLAGS := -fPIC -L$(BITCOIN_HOME)/lib -lbitcoinconsensus -lstdc++
 ifeq ($(UNAME),Linux)
 	CPPFLAGS += -I$(JAVA_HOME)/include/linux
 	LDFLAGS += -shared -Wl,-soname,lib$(NAME).so
@@ -25,7 +25,7 @@ endif
 lib: $(TARGET)
 
 $(TARGET): fr_acinq_bitcoin_ConsensusWrapper.o
-	$(CC) $(LDFLAGS) $^ -o $@ 
+	$(CXX) $^ -o $@ $(LDFLAGS)
 
 clean:
 	$(RM) *.o *.so*
