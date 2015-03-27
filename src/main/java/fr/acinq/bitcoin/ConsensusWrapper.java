@@ -44,7 +44,7 @@ public class ConsensusWrapper {
     private static void loadLibrary() {
         String libName = libraryName();
         try {
-            String ressourcePath = "/" + osName() + "//" + libName;
+            String ressourcePath = "/" + osName() + "/" + libName;
             String uuid = UUID.randomUUID().toString();
             String extractedLibFileName = String.format("btc-%s-%s", uuid, libName);
             String targetFolder = System.getProperty("java.io.tmpdir");
